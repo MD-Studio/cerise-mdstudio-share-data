@@ -1,7 +1,6 @@
 #!/bin/bash
 
 CERISE_API_FILES="$1"
-CERISE_SPECIALIZATION="$2"
 
 if [ -d "$CERISE_API_FILES/mdstudio/github/$CERISE_SPECIALIZATION" ] ; then
     cd "$CERISE_API_FILES/mdstudio/github/$CERISE_SPECIALIZATION"
