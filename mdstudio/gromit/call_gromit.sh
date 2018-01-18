@@ -18,9 +18,9 @@ module load openmpi/gcc/64/1.10.1
 
 source $CERISE_API_FILES/miniconda/bin/activate root
 
-# GMXRC_FILE
-. $GMXRC_FILE
+# load GMXRC_MDSTUDIO PATH
+. $GMXRC_MDSTUDIO
 GROMIT="$CERISE_API_FILES/mdstudio/github/cerise-mdstudio-share-data/mdstudio/gromit/gromit_mpi.sh"
 
 # perform a normal MD protein-ligand simulation
-$GROMIT -gmxrc $GMXRC_FILE -np 8 -vsite -lie -l $LIGAND_PDB,$LIGAND_TOP $*
+$GROMIT -gmxrc $GMXRC_MDSTUDIO -np 8 -vsite -lie -l $LIGAND_PDB,$LIGAND_TOP $*
