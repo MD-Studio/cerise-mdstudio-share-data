@@ -1,4 +1,4 @@
-# Cerise volume container
+# Cerise share data
 
 This repository contains share data between different
 Cerise specialization.
