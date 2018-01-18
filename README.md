@@ -1,6 +1,6 @@
 # Cerise volume container
 
-This repository contains a docker volume to share data between the different
+This repository contains share data between different
 Cerise specialization.
 
 It's work in progress.
