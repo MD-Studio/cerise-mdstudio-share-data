@@ -10,9 +10,8 @@ It's work in progress.
 ### GROMACS
 
 This repository contains a copy of [GROMACS](http://www.gromacs.org) 2016.3 in
-both source and binary (compiled for DAS5/VU) form. The binaries are in the
-mdstudio/gromacs/, and they were compiled from the gromacs-2016.3.tar.gz source
-archive in the gromacs/ directory. The GMXRC.* scripts were modified to point to
+binary (compiled for DAS5/VU) form. The binaries are in the mdstudio/gromacs/
+The GMXRC.* scripts were modified to point to
 the installed location, according to the instructions in them.
 
 GROMACS is Free Software, available under the GNU Lesser General Public License
