@@ -22,5 +22,4 @@ outputs:
     outputBinding: { glob: getEnergy.out }
   energyerr:
     type: File
-    outputBinding: { glob: getEnergy.err }
-    
+    outputBinding: { glob: getEnergy.err }   

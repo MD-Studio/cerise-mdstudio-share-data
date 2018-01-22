@@ -7,15 +7,15 @@ stdout: gromit.out
 stderr: gromit.err
 
 inputs:
-  ligand_pdb:
+  ligand_file:
     type: File
     inputBinding:
       position: 1
-  ligand_top:
+  topology_file:
     type: File
     inputBinding:
       position: 2
-  protein_pdb:
+  protein_file:
     type: File?
     inputBinding:
        position: 3
