@@ -10,14 +10,15 @@ function python_module  {
     for x in ${array[*]}; do
 	# Select a python 3 module
         if [[ $x =~ ^python/3.[4-6]. ]]; then
-        PYTHONMODULE=$x
-        break
+            PYTHONMODULE=$x
+            break
         fi
     done
+    echo $PYTHONMODULE
 }
 
-python_module
-module load $PYTHONMODULE
 
+PYTHONMODULE=$(python_module)
+module load $PYTHONMODULE
 python3 $HOME/.cerise/api/files/cerise/cwltiny.py $*
 
