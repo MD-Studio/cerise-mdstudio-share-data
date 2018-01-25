@@ -101,12 +101,9 @@ outputs:
   gromacslog_step5:
     type: File
     outputBinding: { glob: 05-EMs.log }
-  gromacslog_step6a:
+  gromacslog_step6:
     type: File
-    outputBinding: { glob: 06-PR-NVT-1.log }
-  gromacslog_step6b:
-    type: File
-    outputBinding: { glob: 06-PR-NVT-2.log }
+    outputBinding: { glob: 06-PR-NVT-*.log }
   gromacslog_step7:
     type: File
     outputBinding: { glob: 07-NPT-1.log }
