@@ -591,26 +591,8 @@ echo Gromacs RC file: $GMXRC
 # Otherwise the script will rely on the active gromacs commands 
 [[ $GMXRC ]] && source $GMXRC 
 
-# Set the directory for binaries
-[[ $GMXVERSION -gt 4 ]] && GMXBIN=$(which gmx) || GMXBIN=$(which mdrun)
-# Extract the directory
-GMXBIN=${GMXBIN%/*}
-# Set the directory to SCRIPTDIR if GMXBIN is empty 
-GMXBIN=${GMXBIN:-$SCRIPTDIR}
-
-# Set the command prefix and set the GMXLIB variable to point to 
-# the force field data and such.
-# In some cases, 'gromacs' is part of $GMXDATA
-if [[ $GMXVERSION -gt 4 ]]
-then
-    GMX="$GMXBIN/gmx " 
-    GMXLIB=
-else
-    GMX=$GMXBIN/
-    export GMXLIB=${GMXDATA}/gromacs/top
-    [[ -d $GMXLIB ]] || export GMXLIB=${GMXDATA%/gromacs*}/gromacs/top
-    echo Gromacs data directory: $GMXLIB
-fi
+GMX="$(which gmx_mpi) "
+GMXBIN=${GMX%/*}
 
 # Now finally, test a command and see if it works
 # otherwise raise a fatal error.
@@ -2472,7 +2454,7 @@ then
     ## 1. Solvation
 
     # a. Basic stuff
-    [[ $GMXVERSION -gt 4 ]] && SOLVATE="$GMXBIN/gmx solvate" || SOLVATE=$GMXBIN/genbox
+    [[ $GMXVERSION -gt 4 ]] && SOLVATE="${GMX} solvate" || SOLVATE=$GMXBIN/genbox
     SOLVATE="$SOLVATE -cp $GRO -cs -o $base-sol-b4ions.gro"
 
     # b. Add program specific options from command line
@@ -2568,7 +2550,7 @@ then
 	then
 	    printf "%5d %5d %5d %5d %5d\n" $(SEQ ${Ligenv[@]}) | sed $'s/ 0//g;1s/^/[ check ]\\\n/' > charge.ndx
 	    NDX="-n charge.ndx"
-	    [[ $GMXVERSION -gt 4 ]] && TPRCONV="$GMXBIN/gmx tpr-convert" || TPRCONV="$GMXBIN/tpbconv"
+	    [[ $GMXVERSION -gt 4 ]] && TPRCONV="${GMX} tpr-convert" || TPRCONV="$GMXBIN/tpbconv"
 	    $TPRCONV -s $base-sol-b4ions.tpr -o $base-sol-b4ions-noligand.tpr -n charge.ndx >/dev/null 2>&1
             NCHARGE=$(getCharge $base-sol-b4ions-noligand.tpr)
 	    trash charge.ndx $base-sol-b4ions-noligand.tpr
@@ -3146,7 +3128,7 @@ then
 
     for edr in *-MD.part*.edr 
     do
-        [[ $GMXVERSION -gt 4 ]] && ENE="$GMXBIN/gmx energy" || ENE=$GMXBIN/g_energy
+        [[ $GMXVERSION -gt 4 ]] && ENE="${GMX} energy" || ENE=$GMXBIN/g_energy
 	echo $terms | $ENE -f $edr -o ${edr%.edr}.xvg 2>/dev/null | sed '/^Energy/,/^ *$/{/^ *$/q}' > ${edr%.edr}.lie
     done
 fi

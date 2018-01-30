@@ -8,14 +8,6 @@ LIGAND_TOP="$3"
 # items from the input array
 shift 3
 
-# Function to evalute if a string is true or false
-module load fftw3/openmpi/gcc/64/3.3.4
-module load cuda75/blas/7.5.18
-module load cuda75/fft/7.5.18
-module load cuda75/gdk/352.79
-module load cuda75/toolkit/7.5.18
-module load openmpi/gcc/64/1.10.1
-
 source $CERISE_API_FILES/miniconda/bin/activate root
 
 # load GMXRC_MDSTUDIO PATH
