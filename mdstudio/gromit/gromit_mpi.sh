@@ -590,9 +590,10 @@ echo Gromacs RC file: $GMXRC
 # Source the gromacs RC file if one was found
 # Otherwise the script will rely on the active gromacs commands 
 [[ $GMXRC ]] && source $GMXRC 
-
 GMX="$(which gmx_mpi) "
 GMXBIN=${GMX%/*}
+echo "Gromacs executable: $GMX"
+
 
 # Now finally, test a command and see if it works
 # otherwise raise a fatal error.
