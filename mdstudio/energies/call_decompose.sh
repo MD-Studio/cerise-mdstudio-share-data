@@ -5,6 +5,9 @@ CERISE_API_FILES="$1"
 # remove the CERISE_API_FILES from the input array
 shift
 
+# load GMXRC_MDSTUDIO PATH
+. $CERISE_API_FILES/gmxrc
+
 # Activate environment
 source $CERISE_API_FILES/miniconda/bin/activate root
 
