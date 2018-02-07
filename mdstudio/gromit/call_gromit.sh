@@ -11,7 +11,7 @@ shift 3
 source $CERISE_API_FILES/miniconda/bin/activate root
 
 # load GMXRC_MDSTUDIO PATH
-. $GMXRC_MDSTUDIO
+. $CERISE_API_FILE/gmxrc
 GROMIT="$CERISE_API_FILES/mdstudio/github/cerise-mdstudio-share-data/mdstudio/gromit/gromit_mpi.sh"
 
 # perform a normal MD protein-ligand simulation

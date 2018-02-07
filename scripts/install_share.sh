@@ -12,9 +12,6 @@ else
     git clone git://github.com/MD-Studio/cerise-mdstudio-share-data.git
 fi
 
-CERISE_API=${CERISE_API_FILES%/*}
-cp -r "$CERISE_API_FILES/mdstudio/github/cerise-mdstudio-share-data/api/steps/mdstudio" $CERISE_API/steps/
-
 if [ ! -f "$CERISE_API_FILES/mdstudio/bin/getEnergies.py" ] ; then
     SCRIPT="https://raw.githubusercontent.com/MD-Studio/MDStudio/master/components/lie_md/lie_md/scripts/getEnergies.py"
     wget $SCRIPT -P "$CERISE_API_FILES/mdstudio/bin"
