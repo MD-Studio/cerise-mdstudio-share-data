@@ -84,50 +84,50 @@ inputs:
       prefix: -ttau
 outputs:
   gromitout:
-    type: File?
+    type: File
     outputBinding: { glob: gromit.out }
   gromiterr:
-    type: File?
+    type: File
     outputBinding: { glob: gromit.err }
   gromacslog_step2:
-    type: File?
+    type: File
     outputBinding: { glob: 02-PBC.log }
   gromacslog_step3:
-    type: File?
+    type: File
     outputBinding: { glob: 03-EMv.log }
   gromacslog_step4:
-    type: File?
+    type: File
     outputBinding: { glob: 04-SOLVATION.log }
   gromacslog_step5:
-    type: File?
+    type: File
     outputBinding: { glob: 05-EMs.log }
   gromacslog_step6:
-    type: File?
+    type: File
     outputBinding: { glob: 06-PR-NVT-1.log }
   gromacslog_step7:
-    type: File?
+    type: File
     outputBinding: { glob: 07-NPT-1.log }
   gromacslog_step8:
-    type: File?
+    type: File
     outputBinding: { glob: 08-MD-PRE.log }
   gromacslog_step9:
-    type: File?
+    type: File
     outputBinding: { glob: 09-MD.log }
   trajectory:
-    type: File?
+    type: File
     outputBinding: { glob: "*-MD.part0001.trr" }
   energy:
-    type: File?
+    type: File
     outputBinding: { glob: "*-MD.part*.edr" }
   gro:
-    type: File?
+    type: File
     outputBinding: { glob: "*-sol.gro" }
   ndx:
-    type: File?
+    type: File
     outputBinding: { glob: "*-sol.ndx" }
   top:
-    type: File?
+    type: File
     outputBinding: { glob: "*-sol.top" }
   mdp:
-    type: File?
+    type: File
     outputBinding: { glob: md-prod-out.mdp}

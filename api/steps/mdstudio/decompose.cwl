@@ -41,11 +41,11 @@ inputs:
 
 outputs:
   decompose_dataframe:
-    type: File?
+    type: File
     outputBinding: { glob: "decompose.ene" }
   decompose_err:
-    type: File?
+    type: File
     outputBinding: { glob: "decompose.err" }
   decompose_out:
-    type: File?
+    type: File
     outputBinding: { glob: "decompose.out" }

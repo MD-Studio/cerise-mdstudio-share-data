@@ -15,11 +15,11 @@ inputs:
 
 outputs:
   energy_dataframe:
-    type: File?
+    type: File
     outputBinding: { glob: "energy.ene" }
   energyout:
-    type: File?
+    type: File
     outputBinding: { glob: getEnergy.out }
   energyerr:
-    type: File?
+    type: File
     outputBinding: { glob: getEnergy.err }   
