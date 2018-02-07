@@ -23,5 +23,5 @@ if [ ! -d "$CERISE_API_FILES/miniconda" ] ; then
     conda config --set always_yes yes --set changeps1 no --set auto_update_conda False
     source $CERISE_API_FILES/miniconda/bin/activate root
     conda clean --index-cache
-    pip install panedr
+    pip install panedr cwltools
 fi
