@@ -590,7 +590,7 @@ echo Gromacs RC file: $GMXRC
 # Source the gromacs RC file if one was found
 # Otherwise the script will rely on the active gromacs commands 
 [[ $GMXRC ]] && source $GMXRC 
-GMX="$(which gmx_mpi) "
+GMX="$(which gmx_mpi || which gmx) "
 GMXBIN=${GMX%/*}
 echo "Gromacs executable: $GMX"
 
@@ -1514,7 +1514,11 @@ function MDRUNNER ()
 
 
     # Set up the mdrun command and start it in the background 
-    if (($NP != 1)) ; then
+   BASENAME=$(basename $GMX)
+    if [ $BASENAME=="gmx" ]; then
+        NRANKS=""
+        MPI_RUN=""
+    elif (($NP != 1)) ; then
         NRANKS="-np 4 --map-by ppr:2:socket -v --display-map --display-allocation"
     else
         NRANKS=""
