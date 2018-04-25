@@ -1524,7 +1524,7 @@ function MDRUNNER ()
     else
         NRANKS=""
     fi
-    MDRUN="${MPI_RUN} ${NRANKS} ${GMX}mdrun -v -nice 0 -deffnm $baseOUT -c $fnOUT -cpi $baseOUT.cpt -ntomp $NP $SPLIT $(program_options mdrun) -maxh $MAXH"
+    MDRUN="${MPI_RUN} ${NRANKS} ${GMX}mdrun -v -nice 0 -deffnm $baseOUT -c $fnOUT -cpi $baseOUT.cpt -ntomp $NP -nt $NP $SPLIT $(program_options mdrun) -maxh $MAXH"
     echo
     echo "$MDRUN" | tee -a $fnLOG
     echo
