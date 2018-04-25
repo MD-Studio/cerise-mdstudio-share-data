@@ -1512,19 +1512,16 @@ function MDRUNNER ()
 	fi
     fi
 
-
     # Set up the mdrun command and start it in the background 
-    BASENAME=$(basename $GMX)
-    if [ $BASENAME=="gmx" ]; then
-        NRANKS=""
-        MPI_RUN=""
-    elif (($NP != 1)) ; then
-        # NRANKS="-np 4 --map-by ppr:2:socket -v --display-map --display-allocation"
-	NRANKS="-np $NP --map-by ppr:2:socket -v"
+    THREAD=$(gmx --version | grep "MPI library")
+    if [[ $THREAD =~ thread ]]; then
+        MDRUN="${GMX}mdrun -v -nice 0 -deffnm $baseOUT -c $fnOUT -cpi $baseOUT.cpt -ntomp $NP -nt $NP $S\
+PLIT $(program_options mdrun) -maxh $MAXH"
     else
-        NRANKS=""
+        NRANKS="-np 4 --map-by ppr:2:socket -v --display-map --display-allocation"
+        MDRUN="${MPI_RUN} ${NRANKS} ${GMX}mdrun -v -nice 0 -deffnm $baseOUT -c $fnOUT -cpi $baseOUT.cpt \
+$SPLIT $(program_options mdrun) -maxh $MAXH"
     fi
-    MDRUN="${MPI_RUN} ${NRANKS} ${GMX}mdrun -v -nice 0 -deffnm $baseOUT -c $fnOUT -cpi $baseOUT.cpt -ntomp $NP -nt $NP $SPLIT $(program_options mdrun) -maxh $MAXH"
     echo
     echo "$MDRUN" | tee -a $fnLOG
     echo
