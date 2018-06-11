@@ -1,9 +1,9 @@
 cwlVersion: v1.0
 
 class: CommandLineTool
-arguments: ["gmx_mpi", "grompp"]
-stdout: minimization_1.out
-stderr: minimization_1.err
+arguments: ["$CERISE_API_FILES/mdstudio/github/cerise-mdstudio-share-data/mdstudio/ti/minimization_1.sh", "$CERISE_API_FILES"]
+stdout: minimization.out
+stderr: minimization.err
 
 inputs:
   mdp_file:

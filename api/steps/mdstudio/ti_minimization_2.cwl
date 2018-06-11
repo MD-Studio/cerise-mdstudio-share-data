@@ -1,13 +1,13 @@
 cwlVersion: v1.0
 
 class: CommandLineTool
-arguments: ["gmx_mpi", "mdrun"]
+arguments: ["$CERISE_API_FILES/mdstudio/github/cerise-mdstudio-share-data/mdstudio/ti/minimization_2.sh", "$CERISE_API_FILES"]
 stdout: minimization_2.out
 stderr: minimization_2.err
 
 inputs:
   openmp_threads:
-    type: int
+    type: int?
     inputBinding:
       position: 1
       prefix: -ntomp      
