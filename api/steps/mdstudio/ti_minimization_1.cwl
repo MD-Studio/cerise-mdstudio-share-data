@@ -1,7 +1,8 @@
 cwlVersion: v1.0
 
 class: CommandLineTool
-arguments: ["gmx_mpi", "grompp"]
+arguments: ["source", "$CERISE_API_FILES/gmxrc", "&&", "source", "$GMXRC_MDSTUDIO", "&&",
+            "gmx_mpi", "grompp"]
 stdout: minimization_1.out
 stderr: minimization_1.err
 
