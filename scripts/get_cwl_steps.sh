@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files=("decompose.cwl" "energies.cwl" "gromit.cwl" "it_minimization_1.cwl" "it_minimization_2.cwl")
+files=("decompose.cwl" "energies.cwl" "gromit.cwl" "ti_minimization_1.cwl" "ti_minimization_2.cwl")
 
 REPO="https://raw.githubusercontent.com/MD-Studio/cerise-mdstudio-share-data/ti/api/steps/mdstudio"
 
