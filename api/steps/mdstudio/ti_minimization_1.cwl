@@ -25,6 +25,7 @@ inputs:
     type: string
     inputBinding:
       position: 4
+      prefix: -o
   maxwarn:
     type: int
     default: 33
