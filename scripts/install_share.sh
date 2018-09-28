@@ -13,7 +13,7 @@ else
 fi
 
 if [ ! -f "$CERISE_API_FILES/mdstudio/bin/getEnergies.py" ] ; then
-    SCRIPT="https://raw.githubusercontent.com/MD-Studio/MDStudio/master/components/lie_md/lie_md/scripts/getEnergies.py"
+    SCRIPT="https://raw.githubusercontent.com/MD-Studio/lie_md/master/lie_md/scripts/getEnergies.py"
     wget $SCRIPT -P "$CERISE_API_FILES/mdstudio/bin"
 fi
 
