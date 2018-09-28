@@ -1,7 +1,8 @@
 cwlVersion: v1.0
 
 class: CommandLineTool
-arguments: ["$CERISE_API_FILES/mdstudio/github/cerise-mdstudio-share-data/mdstudio/energies/call_getenergies.sh", "$CERISE_API_FILES"]
+baseCommand: $CERISE_API_FILES/mdstudio/github/cerise-mdstudio-share-data/mdstudio/energies/call_getenergies.sh
+arguments: ["$CERISE_API_FILES"]
 stdout: getEnergy.out
 stderr: getEnergy.err
 
