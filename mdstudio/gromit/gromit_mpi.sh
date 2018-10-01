@@ -1513,7 +1513,7 @@ function MDRUNNER ()
     fi
 
     # Set up the mdrun command and start it in the background 
-    THREAD=$(gmx --version | grep "MPI library")
+    THREAD=$(${GMX} --version | grep "MPI library")
     if [[ $THREAD =~ thread ]]; then
         MDRUN="${GMX}mdrun -v -nice 0 -deffnm $baseOUT -c $fnOUT -cpi $baseOUT.cpt -ntomp $NP -nt $NP $S\
 PLIT $(program_options mdrun) -maxh $MAXH"
