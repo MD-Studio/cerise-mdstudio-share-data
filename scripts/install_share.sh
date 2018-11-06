@@ -23,7 +23,7 @@ if [ ! -d "$CERISE_API_FILES/miniconda" ] ; then
     conda config --set always_yes yes --set changeps1 no --set auto_update_conda False
     
     # Create python3 environment
-    conda create --yes --name cerise python=3.6
+    ./${CERISE_API_FILES}/miniconda/bin/conda create --yes --name cerise python=3.6
     
     source $CERISE_API_FILES/miniconda/bin/activate root
     conda clean --index-cache
