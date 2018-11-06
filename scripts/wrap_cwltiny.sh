@@ -29,8 +29,12 @@ function python_executable {
 }
 
 # Load any python3 module avaialablr
-PYTHONMODULE=$(python_module)
-module load $PYTHONMODULE
+#PYTHONMODULE=$(python_module)
+#module load $PYTHONMODULE
 # Select a python 3 executable
-PYTHON3=$(python_executable)
-$PYTHON3 $HOME/.cerise/api/files/cerise/cwltiny.py $*
+conda activate cerise
+
+#PYTHON3=$(python_executable)
+python3.6 $HOME/.cerise/api/files/cerise/cwltiny.py $*
+
+conda deactivate
